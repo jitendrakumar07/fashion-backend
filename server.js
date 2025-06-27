@@ -18,6 +18,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// ✅ Root Route (Fixes "Cannot GET /")
+app.get('/', (req, res) => {
+  res.send('✅ Fashion Store Backend is Live!');
+});
+
 // ✅ API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
